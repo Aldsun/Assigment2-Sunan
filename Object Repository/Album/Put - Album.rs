@@ -10,7 +10,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;userId\&quot;: \&quot;${UserId}\&quot;,\n    \&quot;body\&quot;: \&quot;${Body}\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;userId\&quot;: \&quot;${UserId}\&quot;,\n    \&quot;tittle\&quot;: \&quot;${Tittle}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -27,7 +27,7 @@
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>PUT</restRequestMethod>
-   <restUrl>https://jsonplaceholder.typicode.com/posts/1</restUrl>
+   <restUrl>https://jsonplaceholder.typicode.com/albums/1</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -48,7 +48,7 @@
       <description></description>
       <id>7e4dec69-fe86-422e-8516-dd7ea2426c2d</id>
       <masked>false</masked>
-      <name>Body</name>
+      <name>Tittle</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
@@ -69,7 +69,7 @@ WS.verifyResponseStatusCode(response, 200)
 
 assertThat(response.getStatusCode()).isEqualTo(200)
 WS.verifyElementPropertyValue(response, 'userId', '321')
-WS.verifyElementPropertyValue(response, 'body', 'Yuk Bisa')
+WS.verifyElementPropertyValue(response, 'tittle', 'Yuk Bisa')
 WS.verifyElementPropertyValue(response, 'id', '1')</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

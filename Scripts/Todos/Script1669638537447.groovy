@@ -17,8 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-//Get
-response = WS.sendRequest(findTestObject('Posts/Get- Posts'))
+response = WS.sendRequest(findTestObject('Todos/Get- Todos'))
 
 WS.verifyResponseStatusCode(response, 200)
 
@@ -26,61 +25,33 @@ WS.verifyElementPropertyValue(response, '[0].userId', '1')
 
 WS.verifyElementPropertyValue(response, '[0].id', '1')
 
-WS.verifyElementPropertyValue(response, '[0].title', 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit')
+WS.verifyElementPropertyValue(response, '[0].title', 'delectus aut autem')
 
-WS.verifyElementPropertyValue(response, '[0].body', 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto')
+WS.verifyElementPropertyValue(response, '[0].completed', 'false')
 
-WS.verifyElementPropertyValue(response, '[1].userId', '1')
-
-WS.verifyElementPropertyValue(response, '[1].id', '2')
-
-WS.verifyElementPropertyValue(response, '[1].title', 'qui est esse')
-
-WS.verifyElementPropertyValue(response, '[1].body', 'est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla')
-
-//Post
-response = WS.sendRequest(findTestObject('Posts/Post - Posts', [('userId') : '101', ('tittle') : 'Pelatihan', ('body') : 'Sunan']))
-
+response = WS.sendRequest(findTestObject('Todos/Post - Todos', [('UserId') : '123', ('Tittle') : 'Assigment', ('Com') : 'Sunan']))
 WS.verifyResponseStatusCode(response, 201)
-
 WS.verifyElementPropertyValue(response, 'userId', '123')
-
-WS.verifyElementPropertyValue(response, 'id', '101')
-
+WS.verifyElementPropertyValue(response, 'id', '201')
 WS.verifyElementPropertyValue(response, 'title', 'Assigment')
+WS.verifyElementPropertyValue(response, 'completed', 'Sunan')
 
-WS.verifyElementPropertyValue(response, 'body', 'Sunan')
-
-//Post2
-response = WS.sendRequest(findTestObject('Posts/Post - Posts 2', [('UserId') : '123', ('Tittle') : 'Assigment', ('Body') : 'Sunan']))
-
+response = WS.sendRequest(findTestObject('Todos/Post - Todos2', [('UserId') : '123', ('Tittle') : 'Assigment', ('Com') : 'Sunan']))
 WS.verifyResponseStatusCode(response, 201)
 
-//Put
-response = WS.sendRequest(findTestObject('Posts/Put - Post', [('UserId') : '321', ('Body') : 'Yuk Bisa']))
-
+response = WS.sendRequest(findTestObject('Todos/Put - Todos', [('UserId') : '321', ('Tittle') : 'Yuk Bisa']))
 WS.verifyResponseStatusCode(response, 200)
-
 WS.verifyElementPropertyValue(response, 'userId', '321')
-
-WS.verifyElementPropertyValue(response, 'body', 'Yuk Bisa')
-
+WS.verifyElementPropertyValue(response, 'tittle', 'Yuk Bisa')
 WS.verifyElementPropertyValue(response, 'id', '1')
 
-//Patch
-response = WS.sendRequest(findTestObject('Posts/Patch - Posts', [('UserId') : '777', ('Body') : 'Zeus']))
-
+response = WS.sendRequest(findTestObject('Todos/Patch - Todos', [('UserId') : '777', ('Tittle') : 'Zeus']))
 WS.verifyResponseStatusCode(response, 200)
-
 WS.verifyElementPropertyValue(response, 'userId', '777')
-
 WS.verifyElementPropertyValue(response, 'id', '1')
+WS.verifyElementPropertyValue(response, 'title', 'Zeus')
+WS.verifyElementPropertyValue(response, 'completed', 'false')
 
-WS.verifyElementPropertyValue(response, 'title', 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit')
-
-WS.verifyElementPropertyValue(response, 'body', 'Zeus')
-
-response = WS.sendRequest(findTestObject('Posts/Delete - Posts'))
-
+response = WS.sendRequest(findTestObject('Todos/Delete - Todos'))
 WS.verifyResponseStatusCode(response, 200)
 

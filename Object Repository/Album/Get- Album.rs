@@ -15,7 +15,7 @@
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://jsonplaceholder.typicode.com/posts</restUrl>
+   <restUrl>https://jsonplaceholder.typicode.com/albums</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -43,9 +43,8 @@ WS.verifyResponseStatusCode(response, 200)
 
 assertThat(response.getStatusCode()).isEqualTo(200)
 
-WS.verifyElementPropertyValue(response, '[0].userId', '')
-WS.verifyElementPropertyValue(response, '[0].id', '')
-WS.verifyElementPropertyValue(response, '[0].title', '')
-WS.verifyElementPropertyValue(response, '[0].body', '')</verificationScript>
+WS.verifyElementPropertyValue(response, '[0].userId', '1')
+WS.verifyElementPropertyValue(response, '[0].id', '1')
+WS.verifyElementPropertyValue(response, '[0].title', 'quidem molestiae enim')</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

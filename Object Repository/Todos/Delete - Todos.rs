@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Delete - Album</name>
+   <name>Delete - Todos</name>
    <tag></tag>
-   <elementGuidId>26391c6c-d775-4d9b-8bd9-bc007cb4833a</elementGuidId>
+   <elementGuidId>80ee842a-0457-4bf1-ab16-07a7581b15e8</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>0</connectionTimeout>
@@ -15,7 +15,7 @@
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>DELETE</restRequestMethod>
-   <restUrl>https://jsonplaceholder.typicode.com/albums/1</restUrl>
+   <restUrl>https://jsonplaceholder.typicode.com/todos/1</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>

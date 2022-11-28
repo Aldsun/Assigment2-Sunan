@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Post - Album</name>
+   <name>Post - Album 2</name>
    <tag></tag>
-   <elementGuidId>b9c3cf7c-ad80-4c55-bf7a-03d3c06d4c2a</elementGuidId>
+   <elementGuidId>bd2d955f-f84f-49fa-98e5-044b240f7e03</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>0</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;userId\&quot;: \&quot;${UserId}\&quot;,\n    \&quot;title\&quot;: \&quot;${Tittle}\&quot;,\n    \&quot;body\&quot;: \&quot;${Body}\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;[\n{\n  \&quot;userId\&quot;: \&quot;${UserId}\&quot;,\n    \&quot;title\&quot;: \&quot;${Tittle}\&quot;,\n    \&quot;body\&quot;: \&quot;${Body}\&quot;\n},\n{\n  \&quot;userId\&quot;: \&quot;666\&quot;,\n    \&quot;title\&quot;: \&quot;Assigment\&quot;,\n    \&quot;body\&quot;: \&quot;Bisa\&quot;\n}\n]&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -70,9 +70,10 @@ import internal.GlobalVariable as GlobalVariable
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-WS.verifyElementPropertyValue(response, 'userId', '123')
-WS.verifyElementPropertyValue(response, 'id', '101')
-WS.verifyElementPropertyValue(response, 'title', 'Assigment')
-WS.verifyElementPropertyValue(response, 'body', 'Sunan')</verificationScript>
+WS.verifyElementPropertyValue(response, '0.userId', '123')
+WS.verifyElementPropertyValue(response, '0.id', '101')
+WS.verifyElementPropertyValue(response, '0.title', 'Assigment')
+WS.verifyElementPropertyValue(response, '0.body', 'Sunan')
+WS.verifyElementPropertyValue(response, '1.userId', '666')</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

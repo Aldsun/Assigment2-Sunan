@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Post - Album</name>
+   <name>Patch - Photos2</name>
    <tag></tag>
-   <elementGuidId>b9c3cf7c-ad80-4c55-bf7a-03d3c06d4c2a</elementGuidId>
+   <elementGuidId>1d3a98b2-47bc-4cf9-a77a-e11b2c391edc</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>0</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;userId\&quot;: \&quot;${UserId}\&quot;,\n    \&quot;title\&quot;: \&quot;${Tittle}\&quot;,\n    \&quot;body\&quot;: \&quot;${Body}\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;[\n  {\n  \&quot;thumbnailUrl\&quot;: \&quot;${TUrl}\&quot;,\n    \&quot;title\&quot;: \&quot;${Tittle}\&quot;,\n  \&quot;url\&quot;: \&quot;${Url}\&quot;\n},\n  {\n  \&quot;thumbnailUrl\&quot;: \&quot;indodax.com\&quot;,\n    \&quot;title\&quot;: \&quot;Yuk Bisa\&quot;,\n  \&quot;url\&quot;: \&quot;bismillah JP\&quot;\n}\n  ]&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -21,13 +21,13 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
-      <webElementGuid>51fd2d65-f319-427e-b7e7-bd7ea9d4cd6b</webElementGuid>
+      <webElementGuid>e1771d81-8118-4ed5-b2a8-ecb5569289f3</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.5.2</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>POST</restRequestMethod>
-   <restUrl>https://jsonplaceholder.typicode.com/albums</restUrl>
+   <restRequestMethod>PATCH</restRequestMethod>
+   <restUrl>https://jsonplaceholder.typicode.com/photos/1</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -37,25 +37,25 @@
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>'123'</defaultValue>
+      <defaultValue>'twitter.com'</defaultValue>
       <description></description>
-      <id>3c2fbced-38ea-4229-91d7-79b82241f0a6</id>
+      <id>24a6058e-0f9c-4892-b600-05450c37ec80</id>
       <masked>false</masked>
-      <name>UserId</name>
+      <name>TUrl</name>
    </variables>
    <variables>
-      <defaultValue>'Assigment'</defaultValue>
+      <defaultValue>'Zeus'</defaultValue>
       <description></description>
-      <id>e3d8c813-0fd9-42f8-9034-2d960ba4dd12</id>
+      <id>0277c730-351b-4d64-badf-e224b56d831d</id>
       <masked>false</masked>
       <name>Tittle</name>
    </variables>
    <variables>
-      <defaultValue>'Sunan'</defaultValue>
+      <defaultValue>'youtube.com'</defaultValue>
       <description></description>
-      <id>5ec77624-70a8-439a-9d11-e602e14f0c5e</id>
+      <id>8d00fc1b-b581-4ca8-9d3b-9e09732da395</id>
       <masked>false</masked>
-      <name>Body</name>
+      <name>Url</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
@@ -70,9 +70,10 @@ import internal.GlobalVariable as GlobalVariable
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-WS.verifyElementPropertyValue(response, 'userId', '123')
-WS.verifyElementPropertyValue(response, 'id', '101')
-WS.verifyElementPropertyValue(response, 'title', 'Assigment')
-WS.verifyElementPropertyValue(response, 'body', 'Sunan')</verificationScript>
+
+
+WS.verifyResponseStatusCode(response, 200)
+
+assertThat(response.getStatusCode()).isEqualTo(200)</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

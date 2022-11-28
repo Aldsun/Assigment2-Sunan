@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Post - Album</name>
+   <name>Post - Todos</name>
    <tag></tag>
-   <elementGuidId>b9c3cf7c-ad80-4c55-bf7a-03d3c06d4c2a</elementGuidId>
+   <elementGuidId>7fc4e624-fcbe-4f97-ad56-cf26e088edd0</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>0</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;userId\&quot;: \&quot;${UserId}\&quot;,\n    \&quot;title\&quot;: \&quot;${Tittle}\&quot;,\n    \&quot;body\&quot;: \&quot;${Body}\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;userId\&quot;: \&quot;${UserId}\&quot;,\n    \&quot;title\&quot;: \&quot;${Tittle}\&quot;,\n    \&quot;completed\&quot;: \&quot;${Com}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -27,7 +27,7 @@
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>https://jsonplaceholder.typicode.com/albums</restUrl>
+   <restUrl>https://jsonplaceholder.typicode.com/todos</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -55,7 +55,7 @@
       <description></description>
       <id>5ec77624-70a8-439a-9d11-e602e14f0c5e</id>
       <masked>false</masked>
-      <name>Body</name>
+      <name>Com</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
@@ -71,8 +71,8 @@ RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
 WS.verifyElementPropertyValue(response, 'userId', '123')
-WS.verifyElementPropertyValue(response, 'id', '101')
+WS.verifyElementPropertyValue(response, 'id', '201')
 WS.verifyElementPropertyValue(response, 'title', 'Assigment')
-WS.verifyElementPropertyValue(response, 'body', 'Sunan')</verificationScript>
+WS.verifyElementPropertyValue(response, 'completed', 'Sunan')</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

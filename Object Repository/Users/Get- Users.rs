@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Delete - Album</name>
+   <name>Get- Users</name>
    <tag></tag>
-   <elementGuidId>26391c6c-d775-4d9b-8bd9-bc007cb4833a</elementGuidId>
+   <elementGuidId>dc488252-14c0-49a8-bb4d-2778eeb3112c</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>0</connectionTimeout>
@@ -14,8 +14,8 @@
    <katalonVersion>8.5.2</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>DELETE</restRequestMethod>
-   <restUrl>https://jsonplaceholder.typicode.com/albums/1</restUrl>
+   <restRequestMethod>GET</restRequestMethod>
+   <restUrl>https://jsonplaceholder.typicode.com/users</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -41,6 +41,12 @@ ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
 
 WS.verifyResponseStatusCode(response, 200)
 
-assertThat(response.getStatusCode()).isEqualTo(200)</verificationScript>
+assertThat(response.getStatusCode()).isEqualTo(200)
+
+
+WS.verifyElementPropertyValue(response, '[0].id', '1')
+WS.verifyElementPropertyValue(response, '[0].name', 'Leanne Graham')
+WS.verifyElementPropertyValue(response, '[0].username', 'Bret')
+WS.verifyElementPropertyValue(response, '[0].email', 'Sincere@april.biz')</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

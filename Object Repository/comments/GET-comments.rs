@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Delete - Album</name>
+   <name>GET-comments</name>
    <tag></tag>
-   <elementGuidId>26391c6c-d775-4d9b-8bd9-bc007cb4833a</elementGuidId>
+   <elementGuidId>93cb9643-dac2-4de4-ba27-a948560a0ffe</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>0</connectionTimeout>
@@ -11,11 +11,11 @@
    <httpBody></httpBody>
    <httpBodyContent></httpBodyContent>
    <httpBodyType></httpBodyType>
-   <katalonVersion>8.5.2</katalonVersion>
+   <katalonVersion>8.1.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>DELETE</restRequestMethod>
-   <restUrl>https://jsonplaceholder.typicode.com/albums/1</restUrl>
+   <restRequestMethod>GET</restRequestMethod>
+   <restUrl>https://jsonplaceholder.typicode.com/comments</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -41,6 +41,11 @@ ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
 
 WS.verifyResponseStatusCode(response, 200)
 
-assertThat(response.getStatusCode()).isEqualTo(200)</verificationScript>
+assertThat(response.getStatusCode()).isEqualTo(200)
+WS.verifyElementPropertyValue(response, '[0].postId', '1')
+WS.verifyElementPropertyValue(response, '[0].id', '1')
+WS.verifyElementPropertyValue(response, '[0].name', 'id labore ex et quam laborum')
+WS.verifyElementPropertyValue(response, '[0].email', 'Eliseo@gardner.biz')
+WS.verifyElementPropertyValue(response, '[0].body', 'laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium')</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

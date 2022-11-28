@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Post - Album</name>
+   <name>POST-comments</name>
    <tag></tag>
-   <elementGuidId>b9c3cf7c-ad80-4c55-bf7a-03d3c06d4c2a</elementGuidId>
+   <elementGuidId>d1fb0f60-8426-46c0-b722-e0897026f403</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <connectionTimeout>0</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;userId\&quot;: \&quot;${UserId}\&quot;,\n    \&quot;title\&quot;: \&quot;${Tittle}\&quot;,\n    \&quot;body\&quot;: \&quot;${Body}\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;postId\&quot;: 1,\n    \&quot;id\&quot;: 26,\n    \&quot;name\&quot;: \&quot;sunan\&quot;,\n    \&quot;email\&quot;: \&quot;nan@mailsac.com\&quot;,\n    \&quot;body\&quot;: \&quot;Yuk Bisaaa\&quot;\n  }&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -21,13 +21,13 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
-      <webElementGuid>51fd2d65-f319-427e-b7e7-bd7ea9d4cd6b</webElementGuid>
+      <webElementGuid>a52fa13f-5440-44f9-8e21-8011ba8c6473</webElementGuid>
    </httpHeaderProperties>
-   <katalonVersion>8.5.2</katalonVersion>
+   <katalonVersion>8.1.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>https://jsonplaceholder.typicode.com/albums</restUrl>
+   <restUrl>https://jsonplaceholder.typicode.com/comments</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -36,27 +36,6 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
-   <variables>
-      <defaultValue>'123'</defaultValue>
-      <description></description>
-      <id>3c2fbced-38ea-4229-91d7-79b82241f0a6</id>
-      <masked>false</masked>
-      <name>UserId</name>
-   </variables>
-   <variables>
-      <defaultValue>'Assigment'</defaultValue>
-      <description></description>
-      <id>e3d8c813-0fd9-42f8-9034-2d960ba4dd12</id>
-      <masked>false</masked>
-      <name>Tittle</name>
-   </variables>
-   <variables>
-      <defaultValue>'Sunan'</defaultValue>
-      <description></description>
-      <id>5ec77624-70a8-439a-9d11-e602e14f0c5e</id>
-      <masked>false</masked>
-      <name>Body</name>
-   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject
@@ -70,9 +49,15 @@ import internal.GlobalVariable as GlobalVariable
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-WS.verifyElementPropertyValue(response, 'userId', '123')
-WS.verifyElementPropertyValue(response, 'id', '101')
-WS.verifyElementPropertyValue(response, 'title', 'Assigment')
-WS.verifyElementPropertyValue(response, 'body', 'Sunan')</verificationScript>
+WS.verifyElementPropertyValue(response, 'postId', '1')
+WS.verifyElementPropertyValue(response, 'id', '501')
+WS.verifyElementPropertyValue(response, 'name', 'sunan')
+WS.verifyElementPropertyValue(response, 'email', 'nan@mailsac.com')
+WS.verifyElementPropertyValue(response, 'body', 'Yuk Bisaaa')
+
+
+WS.verifyResponseStatusCode(response, 201)
+
+assertThat(response.getStatusCode()).isEqualTo(201)</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
